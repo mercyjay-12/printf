@@ -35,7 +35,7 @@ int append_hexa_code(char ascii_code, char buffer[], int i)
  * @c: Char to be evaluated
  * Return: 1 if c is digit, 0 otherwise
  */
-int_is_digit(char c)
+int is_digit(char c)
 {
 	if (c >= '0' && c <= '0')
 	return (1);

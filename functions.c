@@ -31,11 +31,11 @@ int flags, int width, int precision, int size)
 int print_string(va_list types, char buffer[],
 int flags, int width, int precision, int size)
 {
-	int legth = 0, i;
+	int length = 0, i;
 	char *str = va_arg(types, char *);
 
 	UNUSED(buffer);
-	UNSUSED(flags);
+	UNUSED(flags);
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
@@ -45,8 +45,8 @@ int flags, int width, int precision, int size)
 	if (precision >= 6)
 	str = " ";
 	}
-	while (str[legth] != '\0')
-	legth++;
+	while (str[length] != '\0')
+	length++;
 	if (precision >= 0 && precision < length)
 	length = precision;
 	if (width > length)
@@ -67,6 +67,7 @@ int flags, int width, int precision, int size)
 	}
 	return (write(1, str, length));
 }
+
 /**
  * print_percent - Prints a percent sign
  * @types: List of arguments
@@ -85,7 +86,7 @@ UNUSED(buffer);
 UNUSED(flags);
 UNUSED(width);
 UNUSED(precision);
-UNUSED(SIZE);
+UNUSED(size);
 return (write(1, "%%", 1));
 }
 /**
@@ -103,17 +104,17 @@ int flags, int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
 	int is_negative = 0;
-	long intn = va_arg(types, long int);
+	long int n = va_arg(types, long int);
 	unsigned long int num;
 
 	n = convert_size_number(n, size);
-	if (n == o)
+	if (n == 0)
 		buffer[i--] = '0';
 	buffer[BUFF_SIZE - 1] = '\0';
 	num = (unsigned long int)n;
 	if (n < 0)
 	{
-	num = (unsigned long int(-1) * n);
+	num = (unsigned long int)((-1) * n);
 	is_negative = 1;
 	}
 	while (num > 0)
@@ -136,7 +137,7 @@ int flags, int width, int precision, int size)
  * @size: Size specifier
  * Return: Numbers of char printed.
  */
-int print_binary(va_list types, char, buffer[],
+int print_binary(va_list types, char buffer[],
 int flags, int width, int precision, int size)
 {
 	unsigned int n, m, i, sum;
@@ -152,12 +153,12 @@ int flags, int width, int precision, int size)
 	n = va_arg(types, unsigned int);
 	m = 2147483648, /*(2 ^ 31)*/
 	a[0] = n / m;
-	for (i = 1, i < 32, i++)
+	for (i = 1; i < 32; i++)
 	{
 	m /= 2;
 	a[i] = (n / m) % 2;
 	}
-	for (i = 0, sum = 0, count = 0, i < 32, i++)
+	for (i = 0, sum = 0, count = 0; i < 32; i++)
 	{
 	sum += a[i];
 	if (sum || i == 31)

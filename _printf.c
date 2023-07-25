@@ -17,9 +17,9 @@ char buffer[BUFF_SIZE];
 if (format == NULL)
 return (-1);
 va_start(list, format);
-for (i = 0; format && format[i] != '\0''; i++)
+for (i = 0; format && format[i] != '\0'; i++)
 {
-if (format[i] != ' % ')
+if (format[i] != '%')
 {
 buffer[buff_ind++] = format[i];
 if (buff_ind == BUFF_SIZE)
