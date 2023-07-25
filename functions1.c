@@ -39,7 +39,7 @@ int flags, int width, int precision, int size)
  * @size: Size specifier
  * Return: Number of chars printed
  */
-int print_octa(va_list types, char buffer[],
+int print_octal(va_list types, char buffer[],
 int flags, int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
